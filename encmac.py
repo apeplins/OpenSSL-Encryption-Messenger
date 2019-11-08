@@ -13,27 +13,27 @@ home = "/Users/alex/Documents"
 
 subprocess.call([
 	"mkdir",
-	"demoCA"
+	"demoCA",
 ])
 
 subprocess.call([
 	"mkdir", 
-	Certs_dir
+	Certs_dir,
 ])
 
 subprocess.call([
 	"mkdir",
-	 crl_dir
+	 crl_dir,
 ])
 
 subprocess.call([
 	"mkdir", 
-	new_certs_dir
+	new_certs_dir,
 ])
 
 subprocess.call([
 	"touch",
-	database
+	database,
 
 ])
 
@@ -45,7 +45,7 @@ filehandle.close()
 
 subprocess.call(["cp",
 	opensslcnf, 
-	home
+	home,
 ])
 
 subprocess.call([
@@ -58,7 +58,7 @@ subprocess.call([
 	"-out", 
 	"ca.crt", 
 	"-config", 
-	"openssl.cnf"
+	"openssl.cnf",
 ])
 
 subprocess.call([
@@ -67,7 +67,7 @@ subprocess.call([
 	"-aes128", 
 	"-out", 
 	"apeplins.key", 
-	"1024"
+	"1024",
 ])
 
 subprocess.call([
@@ -79,7 +79,7 @@ subprocess.call([
 	 "-out", 
 	 "mycertreq.csr", 
 	 "-config", 
-	 "openssl.cnf"
+	 "openssl.cnf",
 ])
 
 subprocess.call([
@@ -94,5 +94,5 @@ subprocess.call([
 	"-keyfile", 
 	"ca.key", 
 	"-config", 
-	"openssl.cnf"
+	"openssl.cnf",
 ])
