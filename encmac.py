@@ -36,13 +36,10 @@ subprocess.call([
 	database
 
 ])
-filehandle = open(
-	dir + "/" + "serial", 'w'
-)
 
-filehandle.write(
-	"1000"
-)
+filehandle = open( dir + "/" + "serial", 'w')
+
+filehandle.write( "1000" )
 
 filehandle.close()
 
