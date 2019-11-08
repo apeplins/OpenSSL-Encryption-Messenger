@@ -12,29 +12,28 @@ opensslcnf = "/etc/ssl/openssl.cnf"
 home = "/Users/alex/Documents"
 
 subprocess.call([
-	"mkdir",
-	"demoCA",
+    "mkdir",
+    "demoCA",
 ])
 
 subprocess.call([
-	"mkdir", 
-	Certs_dir,
+    "mkdir", 
+    Certs_dir,
 ])
 
 subprocess.call([
-	"mkdir",
-	 crl_dir,
+    "mkdir",
+    crl_dir,
 ])
 
 subprocess.call([
-	"mkdir", 
-	new_certs_dir,
+    "mkdir", 
+    new_certs_dir,
 ])
 
 subprocess.call([
-	"touch",
-	database,
-
+    "touch",
+    database,
 ])
 
 filehandle = open( dir + "/" + "serial", 'w')
@@ -44,55 +43,55 @@ filehandle.write( "1000" )
 filehandle.close()
 
 subprocess.call(["cp",
-	opensslcnf, 
-	home,
+    opensslcnf, 
+    home,
 ])
 
 subprocess.call([
-	"openssl",
-	"req", 
-	"-new", 
-	"-x509", 
-	"-keyout", 
-	"ca.key", 
-	"-out", 
-	"ca.crt", 
-	"-config", 
-	"openssl.cnf",
+    "openssl",
+    "req", 
+    "-new", 
+    "-x509", 
+    "-keyout", 
+    "ca.key", 
+    "-out", 
+    "ca.crt", 
+    "-config", 
+    "openssl.cnf",
 ])
 
 subprocess.call([
-	"openssl",
-	"genrsa", 
-	"-aes128", 
-	"-out", 
-	"apeplins.key", 
-	"1024",
+    "openssl",
+    "genrsa", 
+    "-aes128", 
+    "-out", 
+    "apeplins.key", 
+    "1024",
 ])
 
 subprocess.call([
-	"openssl", 
-	"req",
-	 "-new", 
-	 "-key", 
-	 "apeplins.key", 
-	 "-out", 
-	 "mycertreq.csr", 
-	 "-config", 
-	 "openssl.cnf",
+    "openssl", 
+    "req",
+    "-new", 
+    "-key", 
+    "apeplins.key", 
+    "-out", 
+    "mycertreq.csr", 
+    "-config", 
+    "openssl.cnf",
 ])
 
 subprocess.call([
-	"openssl", 
-	"ca", 
-	"-in", 
-	"mycertreq.csr", 
-	"-out", 
-	"apeplins.crt", 
-	"-cert", 
-	"ca.crt", 
-	"-keyfile", 
-	"ca.key", 
-	"-config", 
-	"openssl.cnf",
+    "openssl", 
+    "ca", 
+    "-in", 
+    "mycertreq.csr", 
+    "-out", 
+    "apeplins.crt", 
+    "-cert", 
+    "ca.crt", 
+    "-keyfile", 
+    "ca.key", 
+    "-config", 
+    "openssl.cnf",
 ])
