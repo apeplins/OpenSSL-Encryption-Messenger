@@ -57,7 +57,6 @@ subprocess.call([
     "apeplins.key",
     "-out",
     "MCA-c2",
-    "-out",
     "hacking.txt",
 ])
 
